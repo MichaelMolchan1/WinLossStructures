@@ -1,15 +1,23 @@
+/*
+Michael Molchan
+3/6/2023
+
+A program that uses a structure to store the win/loss ratio of a team
+that then can output them as either a list of all teams or one team that a user names
+*/
+
+
 #include <iostream>
 #include <string>
 using namespace std;
 
-// Define WinLoss structure with wins and losses members (int)
+// Defines the WinLoss structure with wins and losses members (int)
 struct WinLoss {
     int wins;
     int losses;
 };
 
-// Define Team structure with the team name, containing a WinLoss structure variable for total wins/losses,
-// a WinLoss structure variable for home wins/losses, and a WinLoss structure variable for away wins/losses.
+// Defines the team structure with the team name, and defines a teams wins and losses using the WinLoss structure
 struct Team {
     string name;
     WinLoss total;
@@ -17,12 +25,12 @@ struct Team {
     WinLoss away;
 };
 
-// Declare an array of type Team
+// Declares a teams array that stores up to one hundred teams
 const int MAX_TEAMS = 100;
 Team teams[MAX_TEAMS];
 int numTeams = 0;
 
-// Function prototypes
+
 int menu();
 WinLoss getWinLoss(string location);
 void displayWinLoss(WinLoss winLoss);
@@ -51,7 +59,7 @@ int main() {
             break;
 
         case 3:
-            // Display a particular team
+            // Display a team by name
             findTeam(teams, numTeams);
             break;
 
